@@ -1,0 +1,5 @@
+c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\Service.csproj.AssemblyReference.cache
+c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\Service.AssemblyInfoInputs.cache
+c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\Service.AssemblyInfo.cs
+c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\Service.csproj.CoreCompileInputs.cache

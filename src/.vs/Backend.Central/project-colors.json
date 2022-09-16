@@ -1,0 +1,56 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a959bfc2-590a-4203-bd42-314b50f93e7c": {
+      "ProjectGuid": "a959bfc2-590a-4203-bd42-314b50f93e7c",
+      "DisplayName": "1 - Application",
+      "ColorIndex": 0
+    },
+    "5203882f-a578-4a40-acd3-bc4aa2f7db14": {
+      "ProjectGuid": "5203882f-a578-4a40-acd3-bc4aa2f7db14",
+      "DisplayName": "2 - Domain",
+      "ColorIndex": 1
+    },
+    "dbc02583-4e1a-4a19-ae01-5c8411d1081b": {
+      "ProjectGuid": "dbc02583-4e1a-4a19-ae01-5c8411d1081b",
+      "DisplayName": "3 - Service",
+      "ColorIndex": 2
+    },
+    "8c86eb66-5202-4604-b003-3e2b310a88c4": {
+      "ProjectGuid": "8c86eb66-5202-4604-b003-3e2b310a88c4",
+      "DisplayName": "4.1 - Data",
+      "ColorIndex": 3
+    },
+    "38bb4fdd-e30b-4e01-bfa2-025d24652feb": {
+      "ProjectGuid": "38bb4fdd-e30b-4e01-bfa2-025d24652feb",
+      "DisplayName": "4.2 - CrossCutting",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    },
+    "39cb75ee-10e0-446e-8b43-eb0dc024ac78": {
+      "ProjectGuid": "39cb75ee-10e0-446e-8b43-eb0dc024ac78",
+      "DisplayName": "Domain",
+      "ColorIndex": 5
+    },
+    "1b5c9d4a-85cb-4af5-968a-9b9ed60e99e8": {
+      "ProjectGuid": "1b5c9d4a-85cb-4af5-968a-9b9ed60e99e8",
+      "DisplayName": "Service",
+      "ColorIndex": 6
+    },
+    "12614828-43af-4e3b-aba9-f542a1910511": {
+      "ProjectGuid": "12614828-43af-4e3b-aba9-f542a1910511",
+      "DisplayName": "Data",
+      "ColorIndex": 7
+    },
+    "3a791de8-4c16-414b-b6ba-e004994725ea": {
+      "ProjectGuid": "3a791de8-4c16-414b-b6ba-e004994725ea",
+      "DisplayName": "CrossCutting",
+      "ColorIndex": 8
+    }
+  },
+  "NextColorIndex": 9
+}
