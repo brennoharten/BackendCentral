@@ -50,7 +50,32 @@
       "ProjectGuid": "3a791de8-4c16-414b-b6ba-e004994725ea",
       "DisplayName": "CrossCutting",
       "ColorIndex": 8
+    },
+    "0c527107-493e-49fd-81da-01f870484da4": {
+      "ProjectGuid": "0c527107-493e-49fd-81da-01f870484da4",
+      "DisplayName": "Data",
+      "ColorIndex": 9
+    },
+    "7001223c-ff25-4ddf-8b38-5b6535280daa": {
+      "ProjectGuid": "7001223c-ff25-4ddf-8b38-5b6535280daa",
+      "DisplayName": "Domain",
+      "ColorIndex": 10
+    },
+    "0578fefe-d756-4ce0-9fa6-19fd020ef003": {
+      "ProjectGuid": "0578fefe-d756-4ce0-9fa6-19fd020ef003",
+      "DisplayName": "Service",
+      "ColorIndex": 11
+    },
+    "0ba62bc3-6504-4cf4-a7ad-4e1c6f800d12": {
+      "ProjectGuid": "0ba62bc3-6504-4cf4-a7ad-4e1c6f800d12",
+      "DisplayName": "Application",
+      "ColorIndex": 12
+    },
+    "c83e2e8a-bc7c-4958-b8f0-05744db9615c": {
+      "ProjectGuid": "c83e2e8a-bc7c-4958-b8f0-05744db9615c",
+      "DisplayName": "CrossCutting",
+      "ColorIndex": 13
     }
   },
-  "NextColorIndex": 9
+  "NextColorIndex": 14
 }

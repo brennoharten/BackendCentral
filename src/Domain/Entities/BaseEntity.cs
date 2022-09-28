@@ -8,6 +8,9 @@ namespace Domain.Entities
 {
     public abstract class BaseEntity
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
+        public DateTime CreatDate { get; set; }
+        public DateTime AlterationDate { get; set; }
+        public int AlterationUser { get; set; }
     }
 }
