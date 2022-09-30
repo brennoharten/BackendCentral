@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using System.Net.Mime;
+using Domain.Entities;
 using Domain.Interfaces;
 using Infra.Data.Context;
 using System.Collections.Generic;
@@ -8,9 +9,9 @@ namespace Data.Repository
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
-        protected readonly MySqlContext _mySqlContext;
+        protected readonly Context _mySqlContext;
 
-        public BaseRepository(MySqlContext mySqlContext)
+        public BaseRepository(Context mySqlContext)
         {
             _mySqlContext = mySqlContext;
         }

@@ -1,0 +1,5 @@
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net5.0\CrossCutting.csproj.AssemblyReference.cache
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net5.0\CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net5.0\CrossCutting.AssemblyInfoInputs.cache
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net5.0\CrossCutting.AssemblyInfo.cs
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net5.0\CrossCutting.csproj.CoreCompileInputs.cache

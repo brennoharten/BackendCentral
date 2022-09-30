@@ -30,3 +30,13 @@ C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debu
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Service.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Domain.pdb
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Service.pdb
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Humanizer.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Data.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Data.pdb

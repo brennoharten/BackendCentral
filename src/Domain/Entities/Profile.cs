@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Perfil : BaseEntity
+    public class Profile : BaseEntity
     {
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
         public string Name { get; set; }
 
         public DateTime Birthdate { get; set; }
 
         public string Phone { get; set; }
         public string Genre { get; set; }
-        public int Rank { get; set; }
-        public int GlobalScore { get; set;}
     }
 }

@@ -12,12 +12,6 @@ namespace Infra.Data.Mapping
 
             builder.HasKey(prop => prop.Id);
 
-            builder.Property(prop => prop.Name)
-                .HasConversion(prop => prop.ToString(), prop => prop)
-                .IsRequired()
-                .HasColumnName("Name")
-                .HasColumnType("varchar(100)");
-
             builder.Property(prop => prop.Email)
                .HasConversion(prop => prop.ToString(), prop => prop)
                .IsRequired()
@@ -29,6 +23,9 @@ namespace Infra.Data.Mapping
                 .IsRequired()
                 .HasColumnName("Password")
                 .HasColumnType("varchar(100)");
+
+            builder.HasOne(d => d.Profile)
+                .WithOne(p => p.User).HasForeignKey<Profile>(p => p.UserId);
         }
     }
 }
