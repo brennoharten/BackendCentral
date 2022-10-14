@@ -10,11 +10,11 @@ namespace Application.Controllers
     [ApiController]
     public class GroupProfileController : ControllerBase
     {
-        private IBaseService<GroupProfile> _baseGroupProfileService;
+        private IGroupProfileService _groupProfileService;
 
-        public GroupProfileController(IBaseService<GroupProfile> baseGroupProfileService)
+        public GroupProfileController(IGroupProfileService baseGroupProfileService)
         {
-            _baseGroupProfileService = baseGroupProfileService;
+            _groupProfileService = baseGroupProfileService;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (groupProfile == null)
                 return NotFound();
 
-            return Execute(() => _baseGroupProfileService.Add<GroupProfileValidator>(groupProfile).Id);
+            return Execute(() => _groupProfileService.Add<GroupProfileValidator>(groupProfile).Id);
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Application.Controllers
             if (groupProfile == null)
                 return NotFound();
 
-            return Execute(() => _baseGroupProfileService.Update<GroupProfileValidator>(groupProfile));
+            return Execute(() => _groupProfileService.Update<GroupProfileValidator>(groupProfile));
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseGroupProfileService.Delete(id);
+                _groupProfileService.Delete(id);
                 return true;
             });
 
@@ -53,7 +53,7 @@ namespace Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseGroupProfileService.Get());
+            return Execute(() => _groupProfileService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +62,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseGroupProfileService.GetById(id));
+            return Execute(() => _groupProfileService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

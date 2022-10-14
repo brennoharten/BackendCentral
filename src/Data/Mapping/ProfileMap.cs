@@ -28,14 +28,19 @@ namespace Infra.Data.Mapping
                 .HasColumnType("datetime");
 
             builder.Property(f => f.Phone)
-                .IsRequired()
+                .IsRequired(false)
                 .HasColumnName("Phone")
                 .HasColumnType("varchar(50)");
 
             builder.Property(f => f.Genre)
-                .IsRequired()
+                .IsRequired(false)
                 .HasColumnName("Genre")
                 .HasColumnType("varchar(50)");
+
+            builder.HasOne(p => p.Rank)
+                .WithOne()
+                .HasForeignKey<Rank>(p => p.ProfileId)
+                .IsRequired();
 
         }
     }

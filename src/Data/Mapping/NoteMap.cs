@@ -23,7 +23,7 @@ namespace Infra.Data.Mapping
                 .HasColumnType("text");
 
             builder.Property(f => f.Description)
-                .IsRequired()
+                .IsRequired(false)
                 .HasColumnName("Description")
                 .HasColumnType("varchar(250)");
 

@@ -6,7 +6,7 @@ namespace Service.Services
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
     {
-        private readonly IBaseRepository<TEntity> _baseRepository;
+        protected readonly IBaseRepository<TEntity> _baseRepository;
 
         public BaseService(IBaseRepository<TEntity> baseRepository)
         {

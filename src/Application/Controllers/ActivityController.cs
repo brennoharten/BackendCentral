@@ -10,11 +10,11 @@ namespace Application.Controllers
     [ApiController]
     public class ActivityController : ControllerBase
     {
-        private IBaseService<Activity> _baseActivityService;
+        private IActivityService _activityService;
 
-        public ActivityController(IBaseService<Activity> baseActivityService)
+        public ActivityController(IActivityService baseActivityService)
         {
-            _baseActivityService = baseActivityService;
+            _activityService = baseActivityService;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (activity == null)
                 return NotFound();
 
-            return Execute(() => _baseActivityService.Add<ActivityValidator>(activity).Id);
+            return Execute(() => _activityService.Add<ActivityValidator>(activity).Id);
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Application.Controllers
             if (activity == null)
                 return NotFound();
 
-            return Execute(() => _baseActivityService.Update<ActivityValidator>(activity));
+            return Execute(() => _activityService.Update<ActivityValidator>(activity));
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseActivityService.Delete(id);
+                _activityService.Delete(id);
                 return true;
             });
 
@@ -53,7 +53,7 @@ namespace Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseActivityService.Get());
+            return Execute(() => _activityService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +62,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseActivityService.GetById(id));
+            return Execute(() => _activityService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

@@ -10,11 +10,11 @@ namespace Application.Controllers
     [ApiController]
     public class RankController : ControllerBase
     {
-        private IBaseService<Rank> _baseRankService;
+        private IRankService _rankService;
 
-        public RankController(IBaseService<Rank> baseRankService)
+        public RankController(IRankService baseRankService)
         {
-            _baseRankService = baseRankService;
+            _rankService = baseRankService;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (rank == null)
                 return NotFound();
 
-            return Execute(() => _baseRankService.Add<RankValidator>(rank).Id);
+            return Execute(() => _rankService.Add<RankValidator>(rank).Id);
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Application.Controllers
             if (rank == null)
                 return NotFound();
 
-            return Execute(() => _baseRankService.Update<RankValidator>(rank));
+            return Execute(() => _rankService.Update<RankValidator>(rank));
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseRankService.Delete(id);
+                _rankService.Delete(id);
                 return true;
             });
 
@@ -53,7 +53,7 @@ namespace Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseRankService.Get());
+            return Execute(() => _rankService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +62,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseRankService.GetById(id));
+            return Execute(() => _rankService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

@@ -21,16 +21,6 @@ namespace Infra.Data.Mapping
                 .IsRequired()
                 .HasColumnName("Score")
                 .HasColumnType("int");
-
-            builder.HasOne(p => p.Profile)
-                .WithMany()
-                .HasForeignKey(p => p.ProfileId)
-                .IsRequired();
-
-            builder.HasOne(p => p.RankType)
-                .WithMany()
-                .HasForeignKey(p => p.RankTypeId)
-                .IsRequired();
         }
     }
 }

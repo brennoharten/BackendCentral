@@ -10,11 +10,11 @@ namespace Application.Controllers
     [ApiController]
     public class ActivityHistoryController : ControllerBase
     {
-        private IBaseService<ActivityHistory> _baseActivityHistoryService;
+        private IActivityHistoryService _activityHistoryService;
 
-        public ActivityHistoryController(IBaseService<ActivityHistory> baseActivityHistoryService)
+        public ActivityHistoryController(IActivityHistoryService baseActivityHistoryService)
         {
-            _baseActivityHistoryService = baseActivityHistoryService;
+            _activityHistoryService = baseActivityHistoryService;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (activityHistory == null)
                 return NotFound();
 
-            return Execute(() => _baseActivityHistoryService.Add<ActivityHistoryValidator>(activityHistory).Id);
+            return Execute(() => _activityHistoryService.Add<ActivityHistoryValidator>(activityHistory).Id);
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Application.Controllers
             if (activityHistory == null)
                 return NotFound();
 
-            return Execute(() => _baseActivityHistoryService.Update<ActivityHistoryValidator>(activityHistory));
+            return Execute(() => _activityHistoryService.Update<ActivityHistoryValidator>(activityHistory));
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseActivityHistoryService.Delete(id);
+                _activityHistoryService.Delete(id);
                 return true;
             });
 
@@ -53,7 +53,7 @@ namespace Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseActivityHistoryService.Get());
+            return Execute(() => _activityHistoryService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +62,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseActivityHistoryService.GetById(id));
+            return Execute(() => _activityHistoryService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

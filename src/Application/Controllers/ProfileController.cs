@@ -10,11 +10,11 @@ namespace Application.Controllers
     [ApiController]
     public class ProfileController : ControllerBase
     {
-        private IBaseService<Profile> _baseProfileService;
+        private IProfileService _profileService;
 
-        public ProfileController(IBaseService<Profile> baseProfileService)
+        public ProfileController(IProfileService baseProfileService)
         {
-            _baseProfileService = baseProfileService;
+            _profileService = baseProfileService;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (profile == null)
                 return NotFound();
 
-            return Execute(() => _baseProfileService.Add<ProfileValidator>(profile).Id);
+            return Execute(() => _profileService.Add<ProfileValidator>(profile).Id);
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Application.Controllers
             if (profile == null)
                 return NotFound();
 
-            return Execute(() => _baseProfileService.Update<ProfileValidator>(profile));
+            return Execute(() => _profileService.Update<ProfileValidator>(profile));
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseProfileService.Delete(id);
+                _profileService.Delete(id);
                 return true;
             });
 
@@ -53,7 +53,7 @@ namespace Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseProfileService.Get());
+            return Execute(() => _profileService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +62,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseProfileService.GetById(id));
+            return Execute(() => _profileService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

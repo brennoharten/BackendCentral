@@ -25,7 +25,7 @@ namespace Infra.Data.Mapping
                 .HasColumnName("ScoreGroup")
                 .HasColumnType("int");
 
-            builder.HasOne(p => p.Group)
+/*             builder.HasOne(p => p.Group)
                 .WithMany()
                 .HasForeignKey(p => p.GroupId)
                 .IsRequired();
@@ -33,7 +33,7 @@ namespace Infra.Data.Mapping
             builder.HasOne(p => p.Profile)
                 .WithMany()
                 .HasForeignKey(p => p.ProfileId)
-                .IsRequired();
+                .IsRequired(); */
         }
     }
 }

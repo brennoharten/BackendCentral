@@ -10,13 +10,19 @@ namespace Infra.Data.Mapping
         {
             builder.ToTable("User");
 
+            builder.Property(f => f.InclusionDate).HasColumnType("datetime").IsRequired();
+            builder.Property(f => f.AlterationDate).HasColumnType("datetime").IsRequired();
+            builder.Property(f => f.AlterationUser).HasColumnType("int").IsRequired();
+            builder.Property(f => f.Username).HasColumnType("varchar(50)").IsRequired();
+            builder.Property(f => f.Role).HasColumnType("varchar(50)").IsRequired();
+
             builder.HasKey(prop => prop.Id);
 
             builder.Property(prop => prop.Email)
-               .HasConversion(prop => prop.ToString(), prop => prop)
-               .IsRequired()
-               .HasColumnName("Email")
-               .HasColumnType("varchar(100)");
+                .HasConversion(prop => prop.ToString(), prop => prop)
+                .IsRequired()
+                .HasColumnName("Email")
+                .HasColumnType("varchar(100)");
 
             builder.Property(prop => prop.Password)
                 .HasConversion(prop => prop.ToString(), prop => prop)
@@ -25,7 +31,9 @@ namespace Infra.Data.Mapping
                 .HasColumnType("varchar(100)");
 
             builder.HasOne(d => d.Profile)
-                .WithOne(p => p.User).HasForeignKey<Profile>(p => p.UserId);
+                .WithOne()
+                .HasForeignKey<Profile>(p => p.UserId)
+                .IsRequired();
         }
     }
 }

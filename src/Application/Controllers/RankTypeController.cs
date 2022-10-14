@@ -10,11 +10,11 @@ namespace Application.Controllers
     [ApiController]
     public class RankTypeController : ControllerBase
     {
-        private IBaseService<RankType> _baseRankTypeService;
+        private IRankTypeService _rankTypeService;
 
-        public RankTypeController(IBaseService<RankType> baseRankTypeService)
+        public RankTypeController(IRankTypeService baseRankTypeService)
         {
-            _baseRankTypeService = baseRankTypeService;
+            _rankTypeService = baseRankTypeService;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (rankType == null)
                 return NotFound();
 
-            return Execute(() => _baseRankTypeService.Add<RankTypeValidator>(rankType).Id);
+            return Execute(() => _rankTypeService.Add<RankTypeValidator>(rankType).Id);
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Application.Controllers
             if (rankType == null)
                 return NotFound();
 
-            return Execute(() => _baseRankTypeService.Update<RankTypeValidator>(rankType));
+            return Execute(() => _rankTypeService.Update<RankTypeValidator>(rankType));
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseRankTypeService.Delete(id);
+                _rankTypeService.Delete(id);
                 return true;
             });
 
@@ -53,7 +53,7 @@ namespace Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseRankTypeService.Get());
+            return Execute(() => _rankTypeService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +62,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseRankTypeService.GetById(id));
+            return Execute(() => _rankTypeService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

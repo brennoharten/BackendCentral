@@ -3,6 +3,7 @@ using Domain.Interfaces;
 using Service.Validators;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Application.Controllers
 {
@@ -10,32 +11,35 @@ namespace Application.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IBaseService<User> _baseUserService;
+        private IUserService _userService;
 
-        public UserController(IBaseService<User> baseUserService)
+        public UserController(IUserService baseUserService)
         {
-            _baseUserService = baseUserService;
+            _userService = baseUserService;
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create([FromBody] User user)
         {
             if (user == null)
                 return NotFound();
 
-            return Execute(() => _baseUserService.Add<UserValidator>(user).Id);
+            return Execute(() => _userService.Add<UserValidator>(user).Id);
         }
 
         [HttpPut]
+        [Authorize]
         public IActionResult Update([FromBody] User user)
         {
             if (user == null)
                 return NotFound();
 
-            return Execute(() => _baseUserService.Update<UserValidator>(user));
+            return Execute(() => _userService.Update<UserValidator>(user));
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             if (id == 0)
@@ -43,7 +47,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseUserService.Delete(id);
+                _userService.Delete(id);
                 return true;
             });
 
@@ -51,9 +55,11 @@ namespace Application.Controllers
         }
 
         [HttpGet]
+        [Authorize]
+        [Authorize(Roles = "admin")]
         public IActionResult Get()
         {
-            return Execute(() => _baseUserService.Get());
+            return Execute(() => _userService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +68,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseUserService.GetById(id));
+            return Execute(() => _userService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

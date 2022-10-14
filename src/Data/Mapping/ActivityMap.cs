@@ -19,7 +19,7 @@ namespace Infra.Data.Mapping
 
             builder.Property(f => f.Description)
                 .HasConversion(f => f.ToString(), f => f)
-                .IsRequired()
+                .IsRequired(false)
                 .HasColumnName("Description")
                 .HasColumnType("varchar(250))");
 
@@ -34,7 +34,7 @@ namespace Infra.Data.Mapping
                 .HasColumnType("bit");
 
             builder.Property(f => f.Type)
-                .IsRequired()
+                .IsRequired(false)
                 .HasColumnName("Type")
                 .HasColumnType("varchar(50)");
 

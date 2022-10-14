@@ -10,11 +10,11 @@ namespace Application.Controllers
     [ApiController]
     public class GroupController : ControllerBase
     {
-        private IBaseService<Group> _baseGroupService;
+        private IGroupService _groupService;
 
-        public GroupController(IBaseService<Group> baseGroupService)
+        public GroupController(IGroupService baseGroupService)
         {
-            _baseGroupService = baseGroupService;
+            _groupService = baseGroupService;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (group == null)
                 return NotFound();
 
-            return Execute(() => _baseGroupService.Add<GroupValidator>(group).Id);
+            return Execute(() => _groupService.Add<GroupValidator>(group).Id);
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Application.Controllers
             if (group == null)
                 return NotFound();
 
-            return Execute(() => _baseGroupService.Update<GroupValidator>(group));
+            return Execute(() => _groupService.Update<GroupValidator>(group));
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseGroupService.Delete(id);
+                _groupService.Delete(id);
                 return true;
             });
 
@@ -53,7 +53,7 @@ namespace Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseGroupService.Get());
+            return Execute(() => _groupService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +62,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseGroupService.GetById(id));
+            return Execute(() => _groupService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

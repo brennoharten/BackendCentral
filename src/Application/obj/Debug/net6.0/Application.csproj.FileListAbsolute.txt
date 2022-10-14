@@ -40,3 +40,11 @@ C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debu
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Data.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Data.pdb
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\System.Security.Permissions.dll

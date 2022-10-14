@@ -21,11 +21,11 @@ namespace Data.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(250)", nullable: false)
+                    Description = table.Column<string>(type: "varchar(250)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Deadline = table.Column<DateTime>(type: "Datetime", nullable: false),
                     Status = table.Column<ulong>(type: "bit", nullable: false),
-                    Type = table.Column<string>(type: "varchar(50)", nullable: false)
+                    Type = table.Column<string>(type: "varchar(50)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Score = table.Column<int>(type: "int", nullable: false),
                     DailyActivity = table.Column<ulong>(type: "bit", nullable: false),
@@ -47,7 +47,7 @@ namespace Data.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "varchar(50)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(250)", nullable: false)
+                    Description = table.Column<string>(type: "varchar(250)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
@@ -85,15 +85,16 @@ namespace Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "longtext", nullable: false)
+                    Username = table.Column<string>(type: "varchar(50)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Email = table.Column<string>(type: "varchar(100)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "varchar(100)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    ProfileId = table.Column<int>(type: "int", nullable: false),
-                    InclusionDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    AlterationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Role = table.Column<string>(type: "varchar(50)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     AlterationUser = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -144,9 +145,9 @@ namespace Data.Migrations
                     Name = table.Column<string>(type: "varchar(50)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Birthdate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    Phone = table.Column<string>(type: "varchar(50)", nullable: false)
+                    Phone = table.Column<string>(type: "varchar(50)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Genre = table.Column<string>(type: "varchar(50)", nullable: false)
+                    Genre = table.Column<string>(type: "varchar(50)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
@@ -171,6 +172,7 @@ namespace Data.Migrations
                     ProfileId = table.Column<int>(type: "int", nullable: false),
                     GroupId = table.Column<int>(type: "int", nullable: false),
                     ScoreGroup = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     AlterationUser = table.Column<int>(type: "int", nullable: false)
@@ -202,7 +204,7 @@ namespace Data.Migrations
                     ProfileId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(250)", nullable: false)
+                    Description = table.Column<string>(type: "varchar(250)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
@@ -242,12 +244,6 @@ namespace Data.Migrations
                         principalTable: "Profile",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Rank_RankType_RankTypeId",
-                        column: x => x.RankTypeId,
-                        principalTable: "RankType",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -280,12 +276,8 @@ namespace Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Rank_ProfileId",
                 table: "Rank",
-                column: "ProfileId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rank_RankTypeId",
-                table: "Rank",
-                column: "RankTypeId");
+                column: "ProfileId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -303,6 +295,9 @@ namespace Data.Migrations
                 name: "Rank");
 
             migrationBuilder.DropTable(
+                name: "RankType");
+
+            migrationBuilder.DropTable(
                 name: "Activity");
 
             migrationBuilder.DropTable(
@@ -310,9 +305,6 @@ namespace Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Profile");
-
-            migrationBuilder.DropTable(
-                name: "RankType");
 
             migrationBuilder.DropTable(
                 name: "User");

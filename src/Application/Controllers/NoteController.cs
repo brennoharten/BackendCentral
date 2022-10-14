@@ -10,11 +10,11 @@ namespace Application.Controllers
     [ApiController]
     public class NoteController : ControllerBase
     {
-        private IBaseService<Note> _baseNoteService;
+        private INoteService _noteService;
 
-        public NoteController(IBaseService<Note> baseNoteService)
+        public NoteController(INoteService baseNoteService)
         {
-            _baseNoteService = baseNoteService;
+            _noteService = baseNoteService;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (note == null)
                 return NotFound();
 
-            return Execute(() => _baseNoteService.Add<NoteValidator>(note).Id);
+            return Execute(() => _noteService.Add<NoteValidator>(note).Id);
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Application.Controllers
             if (note == null)
                 return NotFound();
 
-            return Execute(() => _baseNoteService.Update<NoteValidator>(note));
+            return Execute(() => _noteService.Update<NoteValidator>(note));
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Application.Controllers
 
             Execute(() =>
             {
-                _baseNoteService.Delete(id);
+                _noteService.Delete(id);
                 return true;
             });
 
@@ -53,7 +53,7 @@ namespace Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseNoteService.Get());
+            return Execute(() => _noteService.Get());
         }
 
         [HttpGet("{id}")]
@@ -62,7 +62,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseNoteService.GetById(id));
+            return Execute(() => _noteService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

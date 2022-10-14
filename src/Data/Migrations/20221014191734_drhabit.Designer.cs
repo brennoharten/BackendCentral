@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220930091624_drhabit")]
+    [Migration("20221014191734_drhabit")]
     partial class drhabit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,7 +42,6 @@ namespace Data.Migrations
                         .HasColumnName("Deadline");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("varchar(250)")
                         .HasColumnName("Description");
 
@@ -62,7 +61,6 @@ namespace Data.Migrations
                         .HasColumnName("Status");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("varchar(50)")
                         .HasColumnName("Type");
 
@@ -122,7 +120,6 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("varchar(250)")
                         .HasColumnName("Description");
 
@@ -147,12 +144,13 @@ namespace Data.Migrations
                     b.Property<int>("ProfileId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("AlterationDate")
-                        .IsRequired()
+                    b.Property<DateTime>("AlterationDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int?>("AlterationUser")
-                        .IsRequired()
+                    b.Property<int>("AlterationUser")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("InclusionDate")
@@ -182,7 +180,6 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("varchar(250)")
                         .HasColumnName("Description");
 
@@ -221,7 +218,6 @@ namespace Data.Migrations
                         .HasColumnName("Birthdate");
 
                     b.Property<string>("Genre")
-                        .IsRequired()
                         .HasColumnType("varchar(50)")
                         .HasColumnName("Genre");
 
@@ -234,7 +230,6 @@ namespace Data.Migrations
                         .HasColumnName("Name");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("varchar(50)")
                         .HasColumnName("Phone");
 
@@ -276,9 +271,8 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProfileId");
-
-                    b.HasIndex("RankTypeId");
+                    b.HasIndex("ProfileId")
+                        .IsUnique();
 
                     b.ToTable("Rank", (string)null);
                 });
@@ -320,7 +314,7 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AlterationDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime");
 
                     b.Property<int>("AlterationUser")
                         .HasColumnType("int");
@@ -331,19 +325,20 @@ namespace Data.Migrations
                         .HasColumnName("Email");
 
                     b.Property<DateTime>("InclusionDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("varchar(100)")
                         .HasColumnName("Password");
 
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
 
@@ -401,38 +396,31 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Profile", b =>
                 {
-                    b.HasOne("Domain.Entities.User", "User")
+                    b.HasOne("Domain.Entities.User", null)
                         .WithOne("Profile")
                         .HasForeignKey("Domain.Entities.Profile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Rank", b =>
                 {
-                    b.HasOne("Domain.Entities.Profile", "Profile")
-                        .WithMany()
-                        .HasForeignKey("ProfileId")
+                    b.HasOne("Domain.Entities.Profile", null)
+                        .WithOne("Rank")
+                        .HasForeignKey("Domain.Entities.Rank", "ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("Domain.Entities.RankType", "RankType")
-                        .WithMany()
-                        .HasForeignKey("RankTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+            modelBuilder.Entity("Domain.Entities.Profile", b =>
+                {
+                    b.Navigation("Rank")
                         .IsRequired();
-
-                    b.Navigation("Profile");
-
-                    b.Navigation("RankType");
                 });
 
             modelBuilder.Entity("Domain.Entities.User", b =>
                 {
-                    b.Navigation("Profile")
-                        .IsRequired();
+                    b.Navigation("Profile");
                 });
 #pragma warning restore 612, 618
         }
