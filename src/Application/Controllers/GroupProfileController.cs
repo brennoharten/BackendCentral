@@ -3,6 +3,7 @@ using Domain.Interfaces;
 using Service.Validators;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Application.Controllers
 {
@@ -18,6 +19,7 @@ namespace Application.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create([FromBody] GroupProfile groupProfile)
         {
             if (groupProfile == null)
@@ -27,6 +29,7 @@ namespace Application.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public IActionResult Update([FromBody] GroupProfile groupProfile)
         {
             if (groupProfile == null)
@@ -36,6 +39,7 @@ namespace Application.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             if (id == 0)
@@ -51,12 +55,14 @@ namespace Application.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
             return Execute(() => _groupProfileService.Get());
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             if (id == 0)

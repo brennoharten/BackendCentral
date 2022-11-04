@@ -23,7 +23,7 @@ namespace Application.Controllers
             var user = _userRepository.Get(model.Username, model.Password);
 
             if (user == null)
-                return NotFound(new {message = "Usúario ou senha invalidos"});
+                return NotFound(new {message = "Usúario ou senha invalidos"});  
 
             var token = TokenService.GenerateToken(user);
 
