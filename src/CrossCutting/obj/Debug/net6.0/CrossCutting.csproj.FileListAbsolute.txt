@@ -1,6 +1,5 @@
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\bin\Debug\net6.0\CrossCutting.deps.json
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\bin\Debug\net6.0\CrossCutting.dll
-c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\bin\Debug\net6.0\ref\CrossCutting.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\bin\Debug\net6.0\CrossCutting.pdb
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net6.0\CrossCutting.csproj.AssemblyReference.cache
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net6.0\CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
@@ -10,3 +9,4 @@ c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Deb
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net6.0\CrossCutting.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net6.0\ref\CrossCutting.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\obj\Debug\net6.0\CrossCutting.pdb
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\CrossCutting\bin\Debug\net6.0\ref\CrossCutting.dll

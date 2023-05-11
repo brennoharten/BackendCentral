@@ -75,7 +75,22 @@
       "ProjectGuid": "c83e2e8a-bc7c-4958-b8f0-05744db9615c",
       "DisplayName": "CrossCutting",
       "ColorIndex": 13
+    },
+    "bf9318ae-d161-4ea3-bffc-dbaf7a892273": {
+      "ProjectGuid": "bf9318ae-d161-4ea3-bffc-dbaf7a892273",
+      "DisplayName": "Testes",
+      "ColorIndex": 14
+    },
+    "29cb6134-1f76-4a85-8ee1-8a654c9b5a66": {
+      "ProjectGuid": "29cb6134-1f76-4a85-8ee1-8a654c9b5a66",
+      "DisplayName": "Tests",
+      "ColorIndex": 15
+    },
+    "03e0e27d-fc93-42af-a147-090598a64925": {
+      "ProjectGuid": "03e0e27d-fc93-42af-a147-090598a64925",
+      "DisplayName": "TestProject",
+      "ColorIndex": 0
     }
   },
-  "NextColorIndex": 14
+  "NextColorIndex": 1
 }

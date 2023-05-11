@@ -20,18 +20,19 @@ namespace Application.Controllers
         [Route("login")]
         public async Task<ActionResult<dynamic>> AuthenticateAsync([FromBody] Authenticate model)
         {
+            //var user = _userRepository.Get("brennoharten", "senha123");
             var user = _userRepository.Get(model.Username, model.Password);
 
             if (user == null)
-                return NotFound(new {message = "Usúario ou senha invalidos"});  
+                return NotFound(new { message = "Usúario ou senha invalidos" });
 
             var token = TokenService.GenerateToken(user);
 
             user.Password = "";
-            
+
             return new
             {
-                user = user,
+                //user = user,
                 token = token
             };
 

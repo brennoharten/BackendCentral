@@ -1,6 +1,5 @@
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\bin\Debug\net6.0\Domain.deps.json
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\bin\Debug\net6.0\Domain.dll
-c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\bin\Debug\net6.0\ref\Domain.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\bin\Debug\net6.0\Domain.pdb
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
@@ -10,3 +9,4 @@ c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\obj\Debug\net
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\obj\Debug\net6.0\Domain.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\obj\Debug\net6.0\ref\Domain.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\obj\Debug\net6.0\Domain.pdb
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Domain\bin\Debug\net6.0\ref\Domain.dll

@@ -4,7 +4,6 @@ C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debu
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Application.deps.json
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Application.runtimeconfig.json
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Application.dll
-C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\ref\Application.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Application.pdb
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -48,3 +47,4 @@ C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debu
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Application\bin\Debug\net6.0\ref\Application.dll

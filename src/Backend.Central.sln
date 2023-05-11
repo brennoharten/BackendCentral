@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{6F1C4341-3FF3-413F-ADAD-6165E8D712E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{03E0E27D-FC93-42AF-A147-090598A64925}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,18 @@ Global
 		{C83E2E8A-BC7C-4958-B8F0-05744DB9615C}.Release|x64.Build.0 = Release|Any CPU
 		{C83E2E8A-BC7C-4958-B8F0-05744DB9615C}.Release|x86.ActiveCfg = Release|Any CPU
 		{C83E2E8A-BC7C-4958-B8F0-05744DB9615C}.Release|x86.Build.0 = Release|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Debug|x64.Build.0 = Debug|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Debug|x86.Build.0 = Debug|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Release|x64.ActiveCfg = Release|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Release|x64.Build.0 = Release|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Release|x86.ActiveCfg = Release|Any CPU
+		{03E0E27D-FC93-42AF-A147-090598A64925}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

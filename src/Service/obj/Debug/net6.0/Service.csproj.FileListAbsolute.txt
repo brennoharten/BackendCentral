@@ -5,7 +5,6 @@ c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\ne
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\Service.csproj.CoreCompileInputs.cache
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\bin\Debug\net6.0\Service.deps.json
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\bin\Debug\net6.0\Service.dll
-C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\bin\Debug\net6.0\ref\Service.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\bin\Debug\net6.0\Service.pdb
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\bin\Debug\net6.0\Domain.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\bin\Debug\net6.0\Domain.pdb
@@ -13,3 +12,4 @@ C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\ne
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\Service.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\ref\Service.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\obj\Debug\net6.0\Service.pdb
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Service\bin\Debug\net6.0\ref\Service.dll

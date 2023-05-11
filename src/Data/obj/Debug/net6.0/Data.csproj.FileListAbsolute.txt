@@ -1,7 +1,6 @@
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\bin\Debug\net6.0\Data.deps.json
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\bin\Debug\net6.0\Data.runtimeconfig.json
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\bin\Debug\net6.0\Data.dll
-c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\bin\Debug\net6.0\ref\Data.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\bin\Debug\net6.0\Data.pdb
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\bin\Debug\net6.0\Domain.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\bin\Debug\net6.0\Domain.pdb
@@ -15,3 +14,4 @@ c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\obj\Debug\net6.
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\obj\Debug\net6.0\ref\Data.dll
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\obj\Debug\net6.0\Data.pdb
 c:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\obj\Debug\net6.0\Data.genruntimeconfig.cache
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\Data\bin\Debug\net6.0\ref\Data.dll
