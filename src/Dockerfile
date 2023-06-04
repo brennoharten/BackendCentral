@@ -25,10 +25,10 @@ COPY --from=build /app/out .
 
 # Configurações de ambiente
 ENV ASPNETCORE_URLS=http://+:80
-ENV ConnectionStrings__DefaultConnection="Server=mysql-container-hostname;Database=drhabit;Uid=root;Pwd=senha123;"
+ENV ConnectionStrings__DefaultConnection="server=db;port=3306;uid=root;pwd=senha123;database=drhabit;"
 
 # Porta exposta para a aplicação
 EXPOSE 80
 
-# Comando para iniciar a aplicação
+# Ponto de entrada do contêiner
 ENTRYPOINT ["dotnet", "Application.dll"]
