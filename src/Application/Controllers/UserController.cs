@@ -45,7 +45,9 @@ namespace Application.Controllers
             return new
             {
                 Id = UserId,
-                User = user,
+                Username = user.Username,
+                Email = user.Email,
+                Role = user.Role
             };
         }
 
