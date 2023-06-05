@@ -46,8 +46,7 @@ namespace Application.Controllers
             {
                 Id = UserId,
                 Username = user.Username,
-                Email = user.Email,
-                Role = user.Role
+                Email = user.Email
             };
         }
 
