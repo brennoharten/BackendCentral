@@ -1,4 +1,5 @@
 using Domain.Entities;
+using Application.ViewModels;
 using Domain.Interfaces;
 using Service.Validators;
 using Microsoft.AspNetCore.Mvc;
@@ -20,22 +21,47 @@ namespace Application.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Create([FromBody] Activity activity)
+        public IActionResult Create([FromBody] ActivityViewModel activity)
         {
+            Activity newactivity = new Activity{
+                Name = activity.Name, 
+                Description = activity.Description,
+                Deadline = activity.Deadline,
+                Status = activity.Status,
+                Type = activity.Type,
+                Score = activity.Score,
+                DailyActivity = activity.DailyActivity,
+                InclusionDate = DateTime.Now,
+                AlterationDate = DateTime.Now,
+            };
+
             if (activity == null)
                 return NotFound();
 
-            return Execute(() => _activityService.Add<ActivityValidator>(activity).Id);
+            return Execute(() => _activityService.Add<ActivityValidator>(newactivity).Id);
         }
 
         [HttpPut]
         [Authorize]
-        public IActionResult Update([FromBody] Activity activity)
+        public IActionResult Update([FromBody] ActivityViewModel activity)
         {
+            Activity newactivity = new Activity
+            {
+                Name = activity.Name,
+                Description = activity.Description,
+                Deadline = activity.Deadline,
+                Status = activity.Status,
+                Type = activity.Type,
+                Score = activity.Score,
+                DailyActivity = activity.DailyActivity,
+                InclusionDate = DateTime.Now,
+                AlterationDate = DateTime.Now,
+            };
+
             if (activity == null)
                 return NotFound();
 
-            return Execute(() => _activityService.Update<ActivityValidator>(activity));
+            return Execute(() => _activityService.Update<ActivityValidator>(newactivity));
         }
 
         [HttpDelete("{id}")]

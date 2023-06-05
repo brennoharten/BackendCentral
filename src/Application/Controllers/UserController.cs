@@ -20,7 +20,6 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<ActionResult<dynamic>> Create([FromBody] UserViewModel user)
         {
             if (user == null)
