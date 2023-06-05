@@ -13,7 +13,7 @@ namespace Infra.Data.Mapping
             builder.HasKey(pf => new
             {
                 pf.GroupId,
-                pf.ProfileId
+                pf.UserId
             });
 
             builder.Property(f => f.InclusionDate).HasColumnType("datetime").IsRequired();

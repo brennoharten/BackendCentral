@@ -15,6 +15,7 @@ namespace Infra.Data.Mapping
             builder.Property(f => f.AlterationUser).HasColumnType("int").IsRequired();
             builder.Property(f => f.Username).HasColumnType("varchar(50)").IsRequired();
             builder.Property(f => f.Role).HasColumnType("varchar(50)").IsRequired();
+            builder.Property(f => f.Score).HasColumnType("int").IsRequired();
 
             builder.HasKey(prop => prop.Id);
 
@@ -30,10 +31,10 @@ namespace Infra.Data.Mapping
                 .HasColumnName("Password")
                 .HasColumnType("varchar(100)");
 
-            builder.HasOne(d => d.Profile)
-                .WithOne()
-                .HasForeignKey<Profile>(p => p.UserId)
-                .IsRequired();
+            builder.Property(f => f.Score)
+                .IsRequired()
+                .HasColumnName("Score")
+                .HasColumnType("int");
         }
     }
 }

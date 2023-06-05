@@ -53,15 +53,6 @@ builder.Services.AddScoped<IGroupProfileRepository, GroupProfileRepository>();
 builder.Services.AddScoped<INoteService, NoteService>();
 builder.Services.AddScoped<INoteRepository, NoteRepository>();
 
-builder.Services.AddScoped<IProfileService, ProfileService>();
-builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
-
-builder.Services.AddScoped<IRankService, RankService>();
-builder.Services.AddScoped<IRankRepository, RankRepository>();
-
-builder.Services.AddScoped<IRankTypeService, RankTypeService>();
-builder.Services.AddScoped<IRankTypeRepository, RankTypeRepository>();
-
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

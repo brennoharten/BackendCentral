@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using Application.Controllers;
+using Application.ViewModels;
 using Service.Validators;
 
 namespace Application.Tests.Controllers
@@ -26,7 +27,7 @@ namespace Application.Tests.Controllers
         public void Create_InvalidUser_ReturnsNotFound()
         {
             // Arrange
-            User invalidUser = null;
+            UserViewModel invalidUser = null;
 
             // Act
             var result = _userController.Create(invalidUser);
@@ -45,7 +46,7 @@ namespace Application.Tests.Controllers
                 .Returns(new User { Id = 1 });
 
             // Act
-            var result = _userController.Create(validUser);
+            var result = _userController.Create(new UserViewModel());
 
             // Assert
             Assert.IsInstanceOf<OkObjectResult>(result);

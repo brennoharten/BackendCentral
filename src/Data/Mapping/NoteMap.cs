@@ -27,9 +27,9 @@ namespace Infra.Data.Mapping
                 .HasColumnName("Description")
                 .HasColumnType("varchar(250)");
 
-            builder.HasOne(p => p.Profile)
+            builder.HasOne(p => p.User)
                 .WithMany()
-                .HasForeignKey(p => p.ProfileId)
+                .HasForeignKey(p => p.UserId)
                 .IsRequired();
         }
     }

@@ -1,4 +1,4 @@
-using Domain.Entities;
+/* using Domain.Entities;
 using Domain.Interfaces;
 using Service.Validators;
 using Microsoft.AspNetCore.Mvc;
@@ -85,4 +85,4 @@ namespace Application.Controllers
             }
         }
     }
-}
+} */

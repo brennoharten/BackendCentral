@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.Migrations
 {
-    public partial class drhabit : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,26 +60,6 @@ namespace Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "RankType",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "varchar(50)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(250)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    AlterationUser = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RankType", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -93,6 +73,7 @@ namespace Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Role = table.Column<string>(type: "varchar(50)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Score = table.Column<int>(type: "int", nullable: false),
                     InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     AlterationUser = table.Column<int>(type: "int", nullable: false)
@@ -136,40 +117,10 @@ namespace Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Profile",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "varchar(50)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Birthdate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    Phone = table.Column<string>(type: "varchar(50)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Genre = table.Column<string>(type: "varchar(50)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    AlterationUser = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Profile", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Profile_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "GroupProfile",
                 columns: table => new
                 {
-                    ProfileId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     GroupId = table.Column<int>(type: "int", nullable: false),
                     ScoreGroup = table.Column<int>(type: "int", nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false),
@@ -179,7 +130,7 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GroupProfile", x => new { x.GroupId, x.ProfileId });
+                    table.PrimaryKey("PK_GroupProfile", x => new { x.GroupId, x.UserId });
                     table.ForeignKey(
                         name: "FK_GroupProfile_Group_GroupId",
                         column: x => x.GroupId,
@@ -187,9 +138,9 @@ namespace Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_GroupProfile_Profile_ProfileId",
-                        column: x => x.ProfileId,
-                        principalTable: "Profile",
+                        name: "FK_GroupProfile_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -201,7 +152,7 @@ namespace Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ProfileId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Description = table.Column<string>(type: "varchar(250)", nullable: true)
@@ -214,34 +165,9 @@ namespace Data.Migrations
                 {
                     table.PrimaryKey("PK_Note", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Note_Profile_ProfileId",
-                        column: x => x.ProfileId,
-                        principalTable: "Profile",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Rank",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ProfileId = table.Column<int>(type: "int", nullable: false),
-                    RankTypeId = table.Column<int>(type: "int", nullable: false),
-                    Score = table.Column<int>(type: "int", nullable: false),
-                    InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    AlterationDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    AlterationUser = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rank", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Rank_Profile_ProfileId",
-                        column: x => x.ProfileId,
-                        principalTable: "Profile",
+                        name: "FK_Note_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -258,26 +184,14 @@ namespace Data.Migrations
                 column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GroupProfile_ProfileId",
+                name: "IX_GroupProfile_UserId",
                 table: "GroupProfile",
-                column: "ProfileId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Note_ProfileId",
+                name: "IX_Note_UserId",
                 table: "Note",
-                column: "ProfileId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Profile_UserId",
-                table: "Profile",
-                column: "UserId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rank_ProfileId",
-                table: "Rank",
-                column: "ProfileId",
-                unique: true);
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -292,19 +206,10 @@ namespace Data.Migrations
                 name: "Note");
 
             migrationBuilder.DropTable(
-                name: "Rank");
-
-            migrationBuilder.DropTable(
-                name: "RankType");
-
-            migrationBuilder.DropTable(
                 name: "Activity");
 
             migrationBuilder.DropTable(
                 name: "Group");
-
-            migrationBuilder.DropTable(
-                name: "Profile");
 
             migrationBuilder.DropTable(
                 name: "User");

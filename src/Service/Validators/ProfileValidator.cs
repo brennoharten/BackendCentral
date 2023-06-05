@@ -1,4 +1,4 @@
-using System;
+/* using System;
 using Domain.Entities;
 using FluentValidation;
 
@@ -11,4 +11,4 @@ namespace Service.Validators
             
         }
     }
-}
+} */

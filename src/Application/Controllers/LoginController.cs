@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Application.Helpers;
+using Application.ViewModels;
 using Domain.Interfaces;
 
 namespace Application.Controllers
@@ -28,11 +29,9 @@ namespace Application.Controllers
 
             var token = TokenService.GenerateToken(user);
 
-            user.Password = "";
-
             return new
             {
-                //user = user,
+                id = user.Id,
                 token = token
             };
 

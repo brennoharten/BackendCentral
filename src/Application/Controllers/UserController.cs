@@ -1,5 +1,6 @@
 using Domain.Entities;
 using Domain.Interfaces;
+using Application.ViewModels;
 using Service.Validators;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,12 +21,32 @@ namespace Application.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Create([FromBody] User user)
+        public async Task<ActionResult<dynamic>> Create([FromBody] UserViewModel user)
         {
             if (user == null)
                 return NotFound();
 
-            return Execute(() => _userService.Add<UserValidator>(user).Id);
+            User newuser = new User
+            {
+                Username = user.Username,
+                Email = user.Email,
+                Password = user.Password,
+                InclusionDate = DateTime.Now,
+                AlterationDate = DateTime.Now,
+                Role = "user",
+                Score = 0
+            };
+
+
+            var okResult = Execute(() => _userService.Add<UserValidator>(newuser).Id) as OkObjectResult;
+
+            var UserId = okResult.Value;
+
+            return new
+            {
+                Id = UserId,
+                User = user,
+            };
         }
 
         [HttpPut]

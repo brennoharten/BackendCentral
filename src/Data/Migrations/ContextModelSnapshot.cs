@@ -139,7 +139,7 @@ namespace Data.Migrations
                     b.Property<int>("GroupId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProfileId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AlterationDate")
@@ -158,9 +158,9 @@ namespace Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("ScoreGroup");
 
-                    b.HasKey("GroupId", "ProfileId");
+                    b.HasKey("GroupId", "UserId");
 
-                    b.HasIndex("ProfileId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("GroupProfile", (string)null);
                 });
@@ -189,120 +189,14 @@ namespace Data.Migrations
                         .HasColumnType("text")
                         .HasColumnName("Name");
 
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfileId");
-
-                    b.ToTable("Note", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entities.Profile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("AlterationDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("AlterationUser")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Birthdate")
-                        .HasColumnType("datetime")
-                        .HasColumnName("Birthdate");
-
-                    b.Property<string>("Genre")
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Genre");
-
-                    b.Property<DateTime>("InclusionDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Name");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Phone");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Profile", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entities.Rank", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("AlterationDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("AlterationUser")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("InclusionDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RankTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Score")
-                        .HasColumnType("int")
-                        .HasColumnName("Score");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfileId")
-                        .IsUnique();
-
-                    b.ToTable("Rank", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entities.RankType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("AlterationDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("AlterationUser")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("varchar(250)")
-                        .HasColumnName("Description");
-
-                    b.Property<DateTime>("InclusionDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RankType", (string)null);
+                    b.ToTable("Note", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.User", b =>
@@ -333,6 +227,10 @@ namespace Data.Migrations
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int")
+                        .HasColumnName("Score");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -370,55 +268,26 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Profile", "Profile")
+                    b.HasOne("Domain.Entities.User", "user")
                         .WithMany()
-                        .HasForeignKey("ProfileId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Group");
 
-                    b.Navigation("Profile");
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("Domain.Entities.Note", b =>
                 {
-                    b.HasOne("Domain.Entities.Profile", "Profile")
+                    b.HasOne("Domain.Entities.User", "User")
                         .WithMany()
-                        .HasForeignKey("ProfileId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Profile");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Profile", b =>
-                {
-                    b.HasOne("Domain.Entities.User", null)
-                        .WithOne("Profile")
-                        .HasForeignKey("Domain.Entities.Profile", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.Entities.Rank", b =>
-                {
-                    b.HasOne("Domain.Entities.Profile", null)
-                        .WithOne("Rank")
-                        .HasForeignKey("Domain.Entities.Rank", "ProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.Entities.Profile", b =>
-                {
-                    b.Navigation("Rank")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.Entities.User", b =>
-                {
-                    b.Navigation("Profile");
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

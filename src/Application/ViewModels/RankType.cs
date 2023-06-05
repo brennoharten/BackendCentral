@@ -1,8 +1,8 @@
 ﻿/* using System;
 
-namespace Domain.Entities
+namespace Application.ViewModels
 {
-    public class RankType : BaseEntity
+    public class RankTypeViewModel
     {
         public string Name { get; set; }
         public string Description { get; set; }

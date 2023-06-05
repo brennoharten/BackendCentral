@@ -26,9 +26,6 @@ namespace Infra.Data.Context
         public DbSet<Group> Groups { get; set; }
         public DbSet<GroupProfile> GroupProfiles { get; set; }
         public DbSet<Note> Notes { get; set; }
-        public DbSet<Profile> Profiles { get; set; }
-        public DbSet<Rank> Ranks { get; set; }
-        public DbSet<RankType> RankTypes { get; set; }
         public DbSet<Activity> Activity { get; set; }
         public DbSet<ActivityHistory> ActivityHistorys { get; set; }
 
@@ -40,9 +37,6 @@ namespace Infra.Data.Context
             modelBuilder.Entity<Group>(new GroupMap().Configure);
             modelBuilder.Entity<GroupProfile>(new GroupProfileMap().Configure);
             modelBuilder.Entity<Note>(new NoteMap().Configure);
-            modelBuilder.Entity<Profile>(new ProfileMap().Configure);
-            modelBuilder.Entity<Rank>(new RankMap().Configure);
-            modelBuilder.Entity<RankType>(new RankTypeMap().Configure);
             modelBuilder.Entity<Activity>(new ActivityMap().Configure);
             modelBuilder.Entity<ActivityHistory>(new ActivityHistoryMap().Configure);
         }

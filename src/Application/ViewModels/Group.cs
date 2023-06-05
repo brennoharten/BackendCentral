@@ -1,11 +1,10 @@
-﻿/* using System;
+﻿using System;
 
-namespace Domain.Entities
+namespace Application.ViewModels
 {
-    public class RankType : BaseEntity
+    public class GroupViewModel
     {
         public string Name { get; set; }
         public string Description { get; set; }
     }
 }
- */
