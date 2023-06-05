@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿/* using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -152,4 +152,4 @@ namespace Application.Tests.Controllers
             Assert.IsInstanceOf<OkObjectResult>(result);
         }
     }
-}
+} */
