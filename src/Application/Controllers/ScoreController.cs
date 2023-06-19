@@ -30,7 +30,7 @@ namespace Application.Controllers
 
                 // Configure a URL e o cabeçalho de autorização
                 string apiUrl = "https://api.openai.com/v1/completions";
-                string apiKey = "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";
+                string apiKey = "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";
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
                 // Crie um objeto de conteúdo JSON com o prompt fornecido
