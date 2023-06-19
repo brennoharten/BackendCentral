@@ -5,6 +5,11 @@ using Service.Validators;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using Microsoft.AspNetCore.Authorization;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.Json;
+using System.Net.Http.Headers;
 
 namespace Application.Controllers
 {
@@ -13,15 +18,19 @@ namespace Application.Controllers
     public class ActivityController : ControllerBase
     {
         private IActivityService _activityService;
+        private IUserService _userService;
+        private readonly HttpClient _httpClient;
 
-        public ActivityController(IActivityService baseActivityService)
+        public ActivityController(IActivityService baseActivityService, HttpClient httpClient, IUserService baseUserService)
         {
             _activityService = baseActivityService;
+            _httpClient = httpClient;
+            _userService = baseUserService;
         }
 
         [HttpPost]
         [Authorize]
-        public IActionResult Create([FromBody] ActivityViewModel activity)
+        public async Task<IActionResult> CreateAsync([FromBody] ActivityViewModel activity)
         {
             Activity newactivity = new Activity{
                 Name = activity.Name, 
@@ -35,6 +44,36 @@ namespace Application.Controllers
                 InclusionDate = DateTime.Now,
                 AlterationDate = DateTime.Now,
             };
+
+            try
+            {
+                // Obtenha uma instância do HttpClient da fábrica
+
+                // Configure a URL e o cabeçalho de autorização
+                string apiUrl = "https://api.openai.com/v1/completions";
+                string apiKey = "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";
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+
+                // Crie um objeto de conteúdo JSON com o prompt fornecido
+                var model = new ChatGpt(activity.Description);
+                var requestBody = JsonSerializer.Serialize(model);
+                var content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+                // Faça a chamada POST para a API do OpenAI
+                var response = await _httpClient.PostAsync(apiUrl, content);
+
+                var result = await response.Content.ReadFromJsonAsync<ResponseGpt>();
+
+                var promptResult = result.choices.FirstOrDefault().text.Replace("\n", "").Replace("\t", "");
+                newactivity.Score = int.Parse(promptResult);
+                var newUser = _userService.GetById(activity.UserId);
+                newUser.Score += newactivity.Score;
+                _userService.Update<UserValidator>(newUser);
+            }
+            catch (Exception ex)
+            {
+                // Lida com quaisquer erros que possam ocorrer
+                return BadRequest($"Ocorreu um erro: {ex.Message}");
+            }
 
             if (activity == null)
                 return NotFound();

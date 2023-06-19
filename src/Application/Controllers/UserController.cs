@@ -32,7 +32,7 @@ namespace Application.Controllers
                 Password = user.Password,
                 InclusionDate = DateTime.Now,
                 AlterationDate = DateTime.Now,
-                Role = "user",
+                Role = user.Role,
                 Score = 0
             };
 
@@ -84,12 +84,22 @@ namespace Application.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<ActionResult<dynamic>> Get(int id)
         {
             if (id == 0)
-                return NotFound();
+                return NotFound(new { message = "Usúario não encontrado" });
 
-            return Execute(() => _userService.GetById(id));
+            var users = _userService.Get().OrderByDescending(u => u.Score).ToList();
+
+            // Encontrar o índice do usuário na lista classificada (o índice + 1 representa o rank)
+            int rank = users.FindIndex(u => u.Id == id) + 1;
+            var user =  _userService.GetById(id);
+            
+            return new
+            {
+                rank,
+                user
+            };
         }
 
         private IActionResult Execute(Func<object> func)
