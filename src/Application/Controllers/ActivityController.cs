@@ -30,6 +30,7 @@ namespace Application.Controllers
                 Status = activity.Status,
                 Type = activity.Type,
                 Score = activity.Score,
+                UserId = activity.UserId,
                 DailyActivity = activity.DailyActivity,
                 InclusionDate = DateTime.Now,
                 AlterationDate = DateTime.Now,
@@ -94,7 +95,7 @@ namespace Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _activityService.GetById(id));
+            return Execute(() => _activityService.GetByUserId(id));
         }
 
         private IActionResult Execute(Func<object> func)

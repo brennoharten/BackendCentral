@@ -16,7 +16,6 @@ C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debu
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\TestProject.deps.json
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\TestProject.runtimeconfig.json
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\TestProject.dll
-C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\ref\TestProject.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\TestProject.pdb
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\Castle.Core.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\FluentValidation.dll
@@ -134,3 +133,4 @@ C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\obj\Debu
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\obj\Debug\net6.0\TestProject.genruntimeconfig.cache
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\Humanizer.dll
 C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\brenn\source\Facul\ProjetoFinal\BackendCentral\src\TestProject\bin\Debug\net6.0\ref\TestProject.dll

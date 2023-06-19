@@ -11,5 +11,7 @@ namespace Domain.Entities
         public string Type { get; set;}
         public int Score { get; set;}
         public bool DailyActivity { get; set;}
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
     }
 }

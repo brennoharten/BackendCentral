@@ -47,6 +47,11 @@ namespace Infra.Data.Mapping
                 .IsRequired()
                 .HasColumnName("DailyActivity")
                 .HasColumnType("bit");
+            
+            builder.HasOne(p => p.User)
+                .WithMany()
+                .HasForeignKey(p => p.UserId)
+                .IsRequired();
         }
     }
 }

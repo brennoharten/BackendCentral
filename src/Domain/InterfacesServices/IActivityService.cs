@@ -6,5 +6,6 @@ namespace Domain.Interfaces
 {
     public interface IActivityService : IBaseService<Activity>
     {
+        IList<Activity> GetByUserId(int id);
     }
 }
