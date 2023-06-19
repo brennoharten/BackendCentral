@@ -32,7 +32,7 @@ namespace Application.Controllers
                 Password = user.Password,
                 InclusionDate = DateTime.Now,
                 AlterationDate = DateTime.Now,
-                Role = user.Role,
+                Role = "admin",
                 Score = 0
             };
 
