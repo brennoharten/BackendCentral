@@ -47,7 +47,7 @@ namespace Application.Controllers
 
             try
             {
-                // Obtenha uma instância do HttpClient da fábrica
+/*                 // Obtenha uma instância do HttpClient da fábrica
 
                 // Configure a URL e o cabeçalho de autorização
                 string apiUrl = "https://api.openai.com/v1/completions";
@@ -63,8 +63,8 @@ namespace Application.Controllers
 
                 var result = await response.Content.ReadFromJsonAsync<ResponseGpt>();
 
-                var promptResult = result.choices.FirstOrDefault().text.Replace("\n", "").Replace("\t", "");
-                newactivity.Score = int.Parse(promptResult);
+                var promptResult = result.choices.FirstOrDefault().text.Replace("\n", "").Replace("\t", ""); */
+                newactivity.Score = 50;
                 var newUser = _userService.GetById(activity.UserId);
                 newUser.Score += newactivity.Score;
                 _userService.Update<UserValidator>(newUser);
